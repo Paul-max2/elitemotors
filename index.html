@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elite Motors - Personalización automotriz de alta gama en Colombia. Transformación estética, mejoras de rendimiento, sonido y accesorios para vehículos exclusivos.">
+    <title>Elite Motors - Personalización Automotriz de Lujo</title>
+    <style>
+        :root {
+            --primary-red: #c80000;
+            --dark-red: #8b0000;
+            --black: #0d0d0d;
+            --dark-gray: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background-color: var(--black);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Barra de Navegación --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(200, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 0.3rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-red);
+            transition: 0.3s;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)), url('imagen4.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200, 0, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-red);
+            color: var(--black);
+        }
+
+        /* --- Sección Nosotros --- */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-red);
+        }
+
+        .section.sub-section {
+            padding: 3rem 2rem;
+        }
+
+        .nosotros-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .nosotros-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* --- Misión --- */
+        .mision {
+            background: var(--dark-gray);
+        }
+
+        .mision .section-title,
+        .vision .section-title {
+            color: var(--white);
+        }
+
+        .mision .section-title::after,
+        .vision .section-title::after {
+            background: var(--primary-red);
+        }
+
+        .mision-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mision-content p {
+            color: #aaa;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Visión --- */
+        .vision {
+            background: var(--black);
+        }
+
+        .vision-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .vision-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(200, 0, 0, 0.2);
+        }
+
+        .vision-item:last-child {
+            border-bottom: none;
+        }
+
+        /* --- Objetivos --- */
+        .objetivos .section-title {
+            color: var(--white);
+        }
+
+        .objetivos .section-title::after {
+            background: var(--primary-red);
+        }
+
+        .objetivos-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .objetivo-card {
+            background: rgba(200, 0, 0, 0.1);
+            border: 1px solid rgba(200, 0, 0, 0.3);
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .objetivo-card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .objetivo-card h4 {
+            color: var(--primary-red);
+            margin-bottom: 0.8rem;
+        }
+
+        /* --- Servicios --- */
+        .servicios-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .servicio-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .servicio-img {
+            height: 200px;
+            background: var(--dark-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .servicio-contenido {
+            padding: 1.5rem;
+        }
+
+        .servicio-contenido h3 {
+            color: var(--primary-red);
+            margin-bottom: 0.8rem;
+        }
+
+        .servicio-contenido p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .servicio-contenido .btn {
+            width: 100%;
+            padding: 0.6rem;
+            font-size: 0.8rem;
+        }
+
+        /* --- Galería --- */
+        .galeria {
+            background: var(--black);
+        }
+
+        .galeria-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            aspect-ratio: 16/10;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .galeria-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .galeria-item:hover::after {
+            opacity: 0.3;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-img {
+            max-width: 90%;
+            max-height: 90%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* --- Contacto --- */
+        .contacto {
+            background: var(--dark-gray);
+        }
+
+        .contacto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .contacto-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--black);
+            border: 1px solid rgba(200, 0, 0, 0.3);
+            border-radius: 4px;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group .btn {
+            width: 100%;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--black);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-cols: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(200, 0, 0, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-texto {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* --- Animaciones --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Focus States --- */
+        a:focus, button:focus, input:focus, select:focus {
+            outline: 2px solid var(--primary-red);
+            outline-offset: 2px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--black);
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+                padding: 2rem;
+                width: 100%;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="Logotipo de Autos Elite Motors.png" alt="Logotipo Elite Motors" class="logo-img">
+                <span>ELITE MOTORS</span>
+            </a>
+
+            <button class="menu-toggle" aria-label="Menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#mision">Misión</a></li>
+                <li><a href="#vision">Visión</a></li>
+                <li><a href="#objetivos">Objetivos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Principal / Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>TRANSFORMA TU VEHÍCULO. SUPERA TUS LÍMITES.</h1>
+            <p>En Elite Motors llevamos la personalización automotriz a otro nivel, combinando diseño, tecnología y rendimiento para crear vehículos únicos.</p>
+            <div>
+                <a href="#servicios" class="btn btn-primary">Explorar servicios</a>
+                <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section class="section" id="nosotros">
+        <div class="nosotros-container">
+            <div>
+                <h2 class="section-title">Más que vehículos, creamos experiencias.</h2>
+                <p>"Elite Motors es una empresa dedicada a la personalización automotriz, enfocada en transformar vehículos mediante soluciones estéticas, tecnológicas y de rendimiento. Nuestro compromiso es ofrecer a cada cliente un servicio personalizado, materiales de alta calidad y resultados que reflejen su estilo y personalidad."</p>
+            </div>
+            <div>
+                <img src="imagen3.jpg" alt="Personalización automotriz Elite Motors" style="width: 100%; border-radius: 8px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión -->
+    <section class="mision" id="mision">
+        <div class="section-title">Nuestra misión</div>
+        <div class="mision-content">
+            <p>"Brindar servicios integrales de personalización automotriz que combinen diseño, tecnología y rendimiento, ofreciendo a cada cliente una experiencia única mediante asesoría personalizada y materiales de alta calidad."</p>
+        </div>
+    </section>
+
+    <!-- Visión -->
+    <section class="vision" id="vision">
+        <div class="section-title">Nuestra visión</div>
+        <div class="vision-container">
+            <div class="vision-item">
+                Liderazgo en personalización automotriz a nivel nacional
+            </div>
+            <div class="vision-item">
+                Innovación constante en tecnologías y materiales
+            </div>
+            <div class="vision-item">
+                Presencia en las principales ciudades de Colombia
+            </div>
+            <div class="vision-item">
+                Reconocimiento por calidad y confianza
+            </div>
+        </div>
+    </section>
+
+    <!-- Objetivos -->
+    <section class="objetivos" id="objetivos">
+        <div class="section-title">Nuestros objetivos</div>
+        <div class="objetivos-grid">
+            <div class="objetivo-card">
+                <h4>Ofrecer servicios de alta calidad</h4>
+                <p>Satisfacer las necesidades y expectativas de cada cliente con personalización automotriz de excelencia.</p>
+            </div>
+            <div class="objetivo-card">
+                <h4>Incorporar tecnologías innovadoras</h4>
+                <p>Mejorar la estética y rendimiento de los vehículos con materiales y técnicas de vanguardia.</p>
+            </div>
+            <div class="objetivo-card">
+                <h4>Construir una marca reconocida</h4>
+                <p>Excelencia, profesionalismo y confianza en todo Colombia.</p>
+            </div>
+            <div class="objetivo-card">
+                <h4>Brindar asesoría personalizada</h4>
+                <p>Cada cliente transforma su vehículo según sus gustos y preferencias.</p>
+            </div>
+            <div class="objetivo-card">
+                <h4>Expandir presencia nacional</h4>
+                <p>Llegar a las principales ciudades de Colombia con servicios Elite Motors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="section" id="servicios">
+        <div class="section-title">Nuestros servicios</div>
+        <div class="servicios-container">
+            <!-- Servicio 1: Personalización estética -->
+            <div class="servicio-card">
+                <div class="servicio-img" style="background: url('imagen2.jpg');"></div>
+                <div class="servicio-contenido">
+                    <h3>Personalización estética</h3>
+                    <p>Instalación de luces LED, vinilos y wrapping, pintura personalizada y personalización de interiores para darle a tu vehículo un aspecto único y exclusivo.</p>
+                    <button class="btn btn-secondary">Consultar servicio</button>
+                </div>
+            </div>
+
+            <!-- Servicio 2: Mejoras de rendimiento -->
+            <div class="servicio-card">
+                <div class="servicio-img" style="background: url('imagen4.jpg');"></div>
+                <div class="servicio-contenido">
+                    <h3>Mejoras de rendimiento</h3>
+                    <p>Instalación de turbo, sistemas de escape y mejoras de suspensión para maximizar el rendimiento y la conducción de tu vehículo.</p>
+                    <button class="btn btn-secondary">Consultar servicio</button>
+                </div>
+            </div>
+
+            <!-- Servicio 3: Sonido automotriz -->
+            <div class="servicio-card">
+                <div class="servicio-img" style="background: url('imagen1.jpg');"></div>
+                <div class="servicio-contenido">
+                    <h3>Sonido automotriz</h3>
+                    <p>Sistemas de audio personalizados, optimización del sonido y equipamiento de alta calidad para una experiencia auditiva superior.</p>
+                    <button class="btn btn-secondary">Consultar servicio</button>
+                </div>
+            </div>
+
+            <!-- Servicio 4: Venta de accesorios -->
+            <div class="servicio-card">
+                <div class="servicio-img" style="background: url('imagen3.jpg');"></div>
+                <div class="servicio-contenido">
+                    <h3>Venta de accesorios</h3>
+                    <p>Rines, alerones, kits deportivos y accesorios automotrices para completar la transformación de tu vehículo.</p>
+                    <button class="btn btn-secondary">Consultar servicio</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de vehículos -->
+    <section class="galeria" id="galeria">
+        <div class="section-title">El estilo Elite</div>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem;">Selección de vehículos personalizados por Elite Motors</p>
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="image3.jpg" alt="Vehículo personalizado Elite Motors">
+            </div>
+            <div class="galeria-item">
+                <img src="imagen2.jpg" alt="Vehículo personalizado Elite Motors">
+            </div>
+            <div class="galeria-item">
+                <img src="imagen4.jpg" alt="Vehículo personalizado Elite Motors">
+            </div>
+            <div class="galeria-item">
+                <img src="imagen1.jpg" alt="Vehículo personalizado Elite Motors">
+            </div>
+            <div class="galeria-item">
+                <img src="c29efd06a5a3810f0c04ddc1d690600a.jpg" alt="Vehículo personalizado Elite Motors">
+            </div>
+            <div class="galeria-item">
+                <img src="82dbda5a3332e0e71b4a09ad5477eaef.jpg" alt="Vehículo personalizado Elite Motors">
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal" id="modal">
+            <span class="modal-close" aria-label="Cerrar modal">&times;</span>
+            <img class="modal-img" id="modalImg">
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="section-title">Tu próximo proyecto comienza aquí.</div>
+        <div class="contacto-container">
+            <div class="contacto-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Número de teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="servicio">Tipo de servicio</label>
+                        <select id="servicio" name="servicio">
+                            <option value="">Seleccionar servicio</option>
+                            <option value="personalizacion-estetica">Personalización estética</option>
+                            <option value="mejoras-rendimiento">Mejoras de rendimiento</option>
+                            <option value="sonido-automotriz">Sonido automotriz</option>
+                            <option value="venta-accesorios">Venta de accesorios</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar consulta</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="Logotipo de Autos Elite Motors.png" alt="Logotipo Elite Motors" style="width: 40px; height: 40px; object-fit: margin; margin-right: 10px; vertical-align: middle;">
+                    ELITE MOTORS
+                </div>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">Empresa dedicada a la personalización automotriz, enfocada en transformar vehículos mediante soluciones estéticas, tecnológicas y de rendimiento. Ofrecemos servicios personalizados con materiales de alta calidad en todo Colombia.</p>
+            </div>
+            <div>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#mision">Misión</a>
+                    <a href="#vision">Visión</a>
+                    <a href="#objetivos">Objetivos</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-texto">Personalización automotriz en Colombia</span>
+            <span class="footer-texto">&copy; <span id="year"></span> Elite Motors. Todos los derechos reservados.</span>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.add('active');
+        });
+
+        // Cerrar menú al seleccionar una sección
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Galería con modal
+        const galleryItems = document.querySelectorAll('.galeria-item');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const modalClose = document.querySelector('.modal-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                modal.classList.add('active');
+                modalImg.src = item.querySelector('img').src;
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Formulario validación
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            let valid = true;
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const servicio = document.getElementById('servicio').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            if (nombre === '') {
+                valid = false;
+            }
+            if (email === '') {
+                valid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Por favor ingresa un correo electrónico válido');
+                valid = false;
+            }
+            if (servicio === '') {
+                alert('Por favor selecciona un tipo de servicio');
+                valid = false;
+            }
+            if (mensaje === '') {
+                valid = false;
+            }
+
+            if (valid) {
+                // Simular envío - no hay backend
+                alert('Tu consulta ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto.');
+                contactForm.reset();
+            }
+            e.preventDefault();
+        });
+
+        // Animaciones al desplazarse
+        const observeOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observeOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Actualizar año en footer
+        const yearEl = document.getElementById('year');
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+        }
+    </script>
+
+</body>
+</html>
